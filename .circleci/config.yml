@@ -7,5 +7,5 @@ jobs:
     working_directory: /go/src/github.com/pawelhenek/golang-playground
     steps:
       - checkout
-      - run: go run src/github.com/pawelhenek/go-by-examples/environment-variables.go
+      - run: go run src/github.com/pawelhenek/go-by-example/environment-variables.go
       - run: go test -v src/github.com/pawelhenek/learn-go-with-tests/a-working-application
