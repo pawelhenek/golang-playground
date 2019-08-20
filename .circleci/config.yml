@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.11
+
+    working_directory: /go/src/github.com/pawelhenek/golang-playground
+    steps:
+      - checkout
+      - run: go run src/github.com/pawelhenek/go-web-examples/hello-server.go
+      - run: go get -v -t -d ./...
+      - run: go test -v ./...

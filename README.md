@@ -1,6 +1,9 @@
 Golang playground
 -----------------
 
+![Circle CI build](https://circleci.com/gh/pawelhenek/golang-playground/tree/master.svg?style=svg)
+
+
 Prerequisites:
 - Installed Go 11.1 (https://golang.org/doc/install)
 
