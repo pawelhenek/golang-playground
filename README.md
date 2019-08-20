@@ -3,7 +3,6 @@ Golang playground
 
 ![Circle CI build](https://circleci.com/gh/pawelhenek/golang-playground/tree/master.svg?style=svg)
 
-
 Prerequisites:
 - Installed Go 11.1 (https://golang.org/doc/install)
 
@@ -22,6 +21,7 @@ Prerequisites:
 > go test -v  
 
 3. To try out
+- configure tests execution 
 - more go syntax & go modules examples
 - go build & dependencies tools
 - testing libs

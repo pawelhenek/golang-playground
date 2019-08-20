@@ -8,4 +8,3 @@ jobs:
     steps:
       - checkout
       - run: go run src/github.com/pawelhenek/go-by-example/environment-variables.go
-      - run: go test -v src/github.com/pawelhenek/learn-go-with-tests/a-working-application
