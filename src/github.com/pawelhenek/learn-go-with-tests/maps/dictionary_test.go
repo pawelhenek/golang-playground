@@ -8,14 +8,14 @@ func TestSearch(t *testing.T) {
 	dictionary := Dictionary{"test": "this is just a test"}
 
 	t.Run("known word", func(t *testing.T) {
-		got, _ := Search("test")
+		got, _ := dictionary.Search("test")
 		want := "this is just a test"
 
 		assertStrings(t, got, want)
 	})
 
 	t.Run("unknown word", func(t *testing.T) {
-		_, got := Search("unknown")
+		_, got := dictionary.Search("unknown")
 
 		assertError(t, got, ErrNotFound)
 	})
@@ -29,7 +29,7 @@ func TestAdd(t *testing.T) {
 		word := "test"
 		definition := "this is just a test"
 
-		err := Add(word, definition)
+		err := dictionary.Add(word, definition)
 
 		assertError(t, err, nil)
 		assertDefinition(t, dictionary, word, definition)
@@ -39,7 +39,7 @@ func TestAdd(t *testing.T) {
 		word := "test"
 		definition := "this is just a test"
 		dictionary := Dictionary{word: definition}
-		err := Add(word, "new test")
+		err := dictionary.Add(word, "new test")
 
 		assertError(t, err, ErrWordExists)
 		assertDefinition(t, dictionary, word, definition)
@@ -53,7 +53,7 @@ func TestUpdate(t *testing.T) {
 		newDefinition := "new definition"
 		dictionary := Dictionary{word: definition}
 
-		err := Update(word, newDefinition)
+		err := dictionary.Update(word, newDefinition)
 
 		assertError(t, err, nil)
 		assertDefinition(t, dictionary, word, newDefinition)
@@ -64,7 +64,7 @@ func TestUpdate(t *testing.T) {
 		definition := "this is just a test"
 		dictionary := Dictionary{}
 
-		err := Update(word, definition)
+		err := dictionary.Update(word, definition)
 
 		assertError(t, err, ErrWordDoesNotExist)
 	})
@@ -74,9 +74,9 @@ func TestDelete(t *testing.T) {
 	word := "test"
 	dictionary := Dictionary{word: "test definition"}
 
-	Delete(word)
+	dictionary.Delete(word)
 
-	_, err := Search(word)
+	_, err := dictionary.Search(word)
 	if err != ErrNotFound {
 		t.Errorf("Expected '%s' to be deleted", word)
 	}
@@ -101,7 +101,7 @@ func assertError(t *testing.T, got, want error) {
 func assertDefinition(t *testing.T, dictionary Dictionary, word, definition string) {
 	t.Helper()
 
-	got, err := Search(word)
+	got, err := dictionary.Search(word)
 	if err != nil {
 		t.Fatal("should find added word: ", err)
 	}

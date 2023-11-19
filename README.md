@@ -4,7 +4,7 @@ Golang playground
 ![Circle CI build](https://circleci.com/gh/pawelhenek/golang-playground/tree/master.svg?style=svg)
 
 #### Prerequisites:
-- Installed Go 11.1 (https://golang.org/doc/install#install)
+- Installed Go with modules support 1.19 (https://golang.org/doc/install#install)
 
 #### Quick start
 
@@ -22,15 +22,15 @@ Running examples from https://gowebexamples.com
 
 To run examples from https://quii.gitbook.io (when `$GOPATH` is set to e.g. `/home/pawelhenek/Pulpit/golang-playground/`) 
 
-`src/github.com/pawelhenek/golang-playground/learn-go-with-tests/a-working-application` 
-
-`go test -v`  
+`go test -v ./hello`  
+`go test -v ./integers`   
+`go test -v ./iteration`   
+`cd iteration && go test -bench ./`   
 
 #### Locally verified with
 
 `go version`
-
-`go version go1.11.4 linux/amd64`
+`go version go1.19 linux/amd64`
 
 #### Try out 
 - configure tests execution in pipeline

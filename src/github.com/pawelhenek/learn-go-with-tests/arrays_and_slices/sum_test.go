@@ -43,7 +43,7 @@ func TestSumAll(t *testing.T) {
 	}
 }
 
-func TestSumAllTraits(t *testing.T) {
+func TestSumAllTails(t *testing.T) {
 
 	checkSums := func(t *testing.T, got, want []int) {
 		t.Helper()
