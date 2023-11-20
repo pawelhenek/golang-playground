@@ -26,6 +26,12 @@ To run examples from https://quii.gitbook.io (when `$GOPATH` is set to e.g. `/ho
 `go test -v ./integers`   
 `go test -v ./iteration`   
 `cd iteration && go test -bench ./`   
+`go test -v ./array_and_slices`   
+`go test -v ./structs_methods_interfaces`   
+`go test -v ./pointers_and_errors`
+`go test -v ./maps`
+`go test -v ./dependency_injection`
+`go test -v ./mocking`
 
 #### Locally verified with
 

@@ -45,7 +45,7 @@ func TestConfigurableSleeper(t *testing.T) {
 
 	spyTime := &SpyTime{}
 	sleeper := ConfigurableSleeper{sleepTime, spyTime.Sleep}
-	Sleep()
+	sleeper.Sleep()
 
 	if spyTime.durationSlept != sleepTime {
 		t.Errorf("should have slept for %v but slept for %v", sleepTime, spyTime.durationSlept)
@@ -63,7 +63,8 @@ func TestCountDown(t *testing.T) {
 		Countdown(buffer, spySleeper)
 
 		got := buffer.String()
-		want := `3
+		want :=
+			`3
 2
 1
 Go!`
