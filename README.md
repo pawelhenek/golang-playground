@@ -1,10 +1,9 @@
 Golang playground
 ===
 
-![Circle CI build](https://circleci.com/gh/pawelhenek/golang-playground/tree/master.svg?style=svg)
-
 #### Prerequisites:
 - Installed Go with modules support 1.19 (https://golang.org/doc/install#install)
+- Installed [just](https://github.com/casey/just)
 
 #### Quick start
 
@@ -12,26 +11,27 @@ Golang playground
 
 `cd golang-playground`
 
-Running snippets from https://gobyexample.com
+##### With just
 
-`go run src/github.com/pawelhenek/go-by-example/for.go`
+```bash
+just -l
+Available recipes:
+    hello
+    run-go-by-example
+    run-learn-go-with-tests
+```
 
-Running examples from https://gowebexamples.com
+Run all script from https://gobyexample.com
+
+`just run-go-by-example`
+
+Run all examples from https://gowebexamples.com
 
 `go run src/github.com/pawelhenek/go-web-examples/hello-server.go`
 
 To run examples from https://quii.gitbook.io (when `$GOPATH` is set to e.g. `/home/pawelhenek/Pulpit/golang-playground/`) 
 
-`go test -v ./hello`  
-`go test -v ./integers`   
-`go test -v ./iteration`   
-`cd iteration && go test -bench ./`   
-`go test -v ./array_and_slices`   
-`go test -v ./structs_methods_interfaces`   
-`go test -v ./pointers_and_errors`
-`go test -v ./maps`
-`go test -v ./dependency_injection`
-`go test -v ./mocking`
+`just run-go-by-example`
 
 #### Locally verified with
 
@@ -45,3 +45,5 @@ To run examples from https://quii.gitbook.io (when `$GOPATH` is set to e.g. `/ho
 - testing libs
 - web/http/api frameworks
 - dbs, msging, protocols libs
+- dagger pipelines
+- docker, earthly build files
