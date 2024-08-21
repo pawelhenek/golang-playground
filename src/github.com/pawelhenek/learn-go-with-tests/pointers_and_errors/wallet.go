@@ -1,4 +1,4 @@
-package pointers_and_errors
+package main
 
 import (
 	"errors"
@@ -29,12 +29,23 @@ func (wallet *Wallet) Balance() Bitcoin {
 
 var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
 
-func (wallet *Wallet) Withdraw(amount Bitcoin) error {
+func (wallet *Wallet) Withdraw(amount Bitcoin) (Bitcoin, error) {
 
 	if amount > wallet.balance {
-		return ErrInsufficientFunds
+		return Bitcoin(-1), ErrInsufficientFunds
 	}
 
 	wallet.balance -= amount
-	return nil
+	return Bitcoin(wallet.balance), nil
+}
+
+func main() {
+	var inPocketAtStart = Bitcoin(10)
+	var wallet = Wallet{inPocketAtStart}
+
+	var toWithdrawn = Bitcoin(6)
+	var afterWithdrawn, _ = wallet.Withdraw(toWithdrawn)
+
+	fmt.Println(fmt.Sprintf("So we had %d and %d was withdrawn so we got %d now", inPocketAtStart, toWithdrawn, afterWithdrawn))
+
 }

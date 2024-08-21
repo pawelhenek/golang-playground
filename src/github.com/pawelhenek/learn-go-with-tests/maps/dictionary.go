@@ -1,4 +1,9 @@
-package maps
+package main
+
+import (
+	"errors"
+	"fmt"
+)
 
 type Dictionary map[string]string
 
@@ -57,4 +62,26 @@ func (d Dictionary) Update(word, definition string) error {
 
 func (d Dictionary) Delete(word string) {
 	delete(d, word)
+}
+
+func (d Dictionary) Count() int {
+	return len(d)
+}
+
+func main() {
+
+	var dict = Dictionary{
+		"keyOne":   "value",
+		"keyTwo":   "anotherValue",
+		"keyThree": "yetAnotherValue",
+	}
+	fmt.Printf("There are %d elements in dictionary \n", dict.Count())
+	searchKey := "nonExistingKey"
+	found, err := dict.Search(searchKey)
+
+	if errors.Is(err, ErrNotFound) {
+		fmt.Printf("There is no such key : %s \n", searchKey)
+	} else {
+		fmt.Printf("The key was found %s \n", found)
+	}
 }

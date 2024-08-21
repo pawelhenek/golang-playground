@@ -7,9 +7,7 @@ Golang playground
 
 #### Quick start
 
-`git clone https://github.com/pawelhenek/golang-playground.git`
-
-`cd golang-playground`
+`git clone https://github.com/pawelhenek/golang-playground.git &&  cd golang-playground`
 
 ##### With just
 
@@ -44,6 +42,12 @@ To run examples from https://quii.gitbook.io (when `$GOPATH` is set to e.g. `/ho
 - go build & dependencies tools
 - testing libs
 - web/http/api frameworks
-- dbs, msging, protocols libs
+- grpc
+- samples with test containers
+- k8s api
+- terraform provider
+- kafka
+- postgresql
+- cli app
 - dagger pipelines
 - docker, earthly build files

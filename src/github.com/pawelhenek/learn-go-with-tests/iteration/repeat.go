@@ -1,4 +1,6 @@
-package iteration
+package main
+
+import "fmt"
 
 func Repeat(char string, no int) string {
 	var repeated string
@@ -6,4 +8,8 @@ func Repeat(char string, no int) string {
 		repeated += char
 	}
 	return repeated
+}
+
+func main() {
+	fmt.Println(Repeat("abc", 7))
 }

@@ -1,4 +1,6 @@
-package arrays_and_slices
+package main
+
+import "fmt"
 
 func Sum(numbers []int) int {
 	sum := 0
@@ -30,4 +32,10 @@ func SumAllTraits(numbersToSum ...[]int) []int {
 	}
 
 	return sums
+}
+
+func main() {
+	fmt.Println(fmt.Sprintf("1 + 3 + 6 + 8 = %d", Sum([]int{1, 3, 6, 8})))
+	fmt.Println(fmt.Sprintf("1 + 3 + 6 + 8 = %d", SumAll([]int{1, 3, 6, 8})))
+	fmt.Println(fmt.Sprintf("1 + 3 + 6 + 8 = %d", SumAllTraits([]int{1, 3, 6, 8})))
 }
